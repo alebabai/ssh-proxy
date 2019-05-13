@@ -4,13 +4,15 @@ function open_ssh_tunnel {
     local timestamp=`date +%s`
 
     local tunnel_host=${SSH_TUNNEL_HOST:-serveo.net}
+    local tunnel_prefix=${SSH_TUNNEL_PREFIX:-$timestamp}
     local tunnel_port=${SSH_TUNNEL_PORT:-443}
     local tunnel_bindings=""
 
     for address in ${ADDRESS[@]}
     do
-        local tunnel_prefix=$(echo $address | cut -d ':' -f 1)-$timestamp
-        tunnel_bindings+=" -R $tunnel_prefix:$tunnel_port:$address"
+        local remote_hostname=$(echo $address | cut -d ':' -f 1)
+        local tunnel_address=$tunnel_prefix-$remote_hostname:$tunnel_port
+        tunnel_bindings+=" -R $tunnel_address:$address"
     done
 
     if [ -z "$tunnel_bindings" ]; then
