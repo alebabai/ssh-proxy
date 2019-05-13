@@ -18,7 +18,7 @@ function open_ssh_tunnel {
     if [ -z "$tunnel_bindings" ]; then
         exit 1
     else
-        local cmd="ssh -T -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null $SSH_ARGS $tunnel_bindings $tunnel_host"
+        local cmd="ssh -T -o ExitOnForwardFailure=yes -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null $SSH_ARGS $tunnel_bindings $tunnel_host"
         echo $cmd
         exec $cmd
     fi
