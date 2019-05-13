@@ -1,0 +1,7 @@
+version: '3.7'
+services:
+  ssh-proxy:
+    image: alebabai/ssh-proxy:latest
+    build: .
+    environment: 
+      ADDRESS: "localhost:80"
