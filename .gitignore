@@ -14,4 +14,4 @@
 
 # End of https://www.gitignore.io/api/visualstudiocode
 
-output.txt
+tmp/

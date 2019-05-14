@@ -20,7 +20,7 @@ function open_ssh_tunnel {
     if [ -z "$tunnel_bindings" ]; then
         exit 1
     else
-        local output_file=${OUTPUT_FILE:-"output.txt"}
+        local output_file=${OUTPUT_FILE:-"/tmp/ssh-proxy/output.txt"}
         printf "%s\n" ${tunnel_urls[@]} > $output_file
         
         local cmd="ssh -T -o ExitOnForwardFailure=yes -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null $SSH_ARGS $(printf " -R %s" ${tunnel_bindings[@]}) $tunnel_host"
