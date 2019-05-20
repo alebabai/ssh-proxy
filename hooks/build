@@ -12,6 +12,6 @@ docker build \
   --label $PREFIX.title="SSH-proxy" \
   --label $PREFIX.description="Dockerized SSH-proxy" \
   --label $PREFIX.authors="aliaksandr.babai@gmail.com" \
-  --label $PREFIX.licenses=$(head -n 1 $PWD/LICENSE) \
+  --label $PREFIX.licenses="$(head -n 1 $PWD/LICENSE)" \
   -t $IMAGE_NAME \
   .
