@@ -2,17 +2,16 @@
 
 PREFIX="org.opencontainers.image"
 
-LABELS=(
-$PREFIX.created=$(date -u +"%Y-%m-%dT%H:%M:%SZ")
-$PREFIX.url=$SOURCE_REPOSITORY_URL
-$PREFIX.source=$SOURCE_REPOSITORY_URL
-$PREFIX.version=$DOCKER_TAG
-$PREFIX.revision=$SOURCE_COMMIT
-$PREFIX.vendor="alebabai"
-$PREFIX.title="SSH-proxy"
-$PREFIX.description="Dockerized SSH-proxy"
-$PREFIX.authors="aliaksandr.babai@gmail.com"
-$PREFIX.licenses="$(head -n 1 $PWD/LICENSE)"
-)
-
-docker build --label "${LABELS[*]}" -t $IMAGE_NAME .
+docker build \
+  --label $PREFIX.created=$(date -u +"%Y-%m-%dT%H:%M:%SZ") \
+  --label $PREFIX.url=$SOURCE_REPOSITORY_URL \
+  --label $PREFIX.source=$SOURCE_REPOSITORY_URL \
+  --label $PREFIX.version=$DOCKER_TAG \
+  --label $PREFIX.revision=$SOURCE_COMMIT \
+  --label $PREFIX.vendor="alebabai" \
+  --label $PREFIX.title="SSH-proxy" \
+  --label $PREFIX.description="Dockerized SSH-proxy" \
+  --label $PREFIX.authors="aliaksandr.babai@gmail.com" \
+  --label $PREFIX.licenses="$(head -n 1 $PWD/LICENSE)" \
+  -t $IMAGE_NAME \
+  .
