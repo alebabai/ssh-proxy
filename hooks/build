@@ -4,10 +4,10 @@ PREFIX="org.opencontainers.image"
 
 docker build \
   --label $PREFIX.created=$(date -u +"%Y-%m-%dT%H:%M:%SZ") \
-  --label $PREFIX.url=$(git remote get-url origin) \
-  --label $PREFIX.source=$(git remote get-url origin) \
+  --label $PREFIX.url=$SOURCE_REPOSITORY_URL \
+  --label $PREFIX.source=$SOURCE_REPOSITORY_URL \
   --label $PREFIX.version=$DOCKER_TAG \
-  --label $PREFIX.revision=$(git remote get-url origin) \
+  --label $PREFIX.revision=$SOURCE_COMMIT \
   --label $PREFIX.vendor="alebabai" \
   --label $PREFIX.title="SSH-proxy" \
   --label $PREFIX.description="Dockerized SSH-proxy" \
