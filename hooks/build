@@ -3,7 +3,7 @@
 PREFIX="org.opencontainers.image"
 
 docker build \
-  --label $PREFIX.created=$(date -u +"%Y-%m-%dT%H:%M:%SZ") \
+  --label $PREFIX.created="$(date -u +"%Y-%m-%dT%H:%M:%SZ")" \
   --label $PREFIX.url=$SOURCE_REPOSITORY_URL \
   --label $PREFIX.source=$SOURCE_REPOSITORY_URL \
   --label $PREFIX.version=$DOCKER_TAG \
