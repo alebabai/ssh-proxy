@@ -1,0 +1,21 @@
+#!/bin/bash
+
+PREFIX="org.opencontainers.image"
+
+pwd
+
+printenv
+
+docker build \
+  --label $PREFIX.created=$(date -u +"%Y-%m-%dT%H:%M:%SZ") \
+  --label $PREFIX.url=$(git remote get-url origin) \
+  --label $PREFIX.source=$(git remote get-url origin) \
+  --label $PREFIX.version=$DOCKER_TAG \
+  --label $PREFIX.revision=$(git remote get-url origin) \
+  --label $PREFIX.vendor="alebabai" \
+  --label $PREFIX.title="SSH-proxy" \
+  --label $PREFIX.description="Dockerized SSH-proxy" \
+  --label $PREFIX.authors="aliaksandr.babai@gmail.com" \
+  --label $PREFIX.licenses="MIT" \
+  -t $IMAGE_NAME \
+  .
