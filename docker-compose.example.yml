@@ -5,7 +5,8 @@ services:
     image: alebabai/ssh-proxy:latest
     build: .
     environment: 
-      ADDRESS: "nginx:80"
+      ADDRESSES: |-
+        nginx:80
     volumes:
       - ./tmp:/tmp/ssh-proxy
     networks: 
