@@ -10,7 +10,11 @@
 
 ### Environment variables
 
-- `ADDRESS` - _provide one or more `HOST:PORT` pairs separated by space for services to be exposed_
+- `ADDRESSES` - _provide one or more `HOST:PORT` pairs separated by space for services to be exposed_
+- `OUTPUT_FILE` - _prefix of the exposed url (default `$timestamp`)_
+- `SSH_TUNNEL_HOST` - _host of the service that will be used as ssh-server (default `serveo.net`)_
+- `SSH_TUNNEL_PORT` - _port of the service that will be used as ssh-server (default `443`)_
+- `SSH_TUNNEL_PREFIX` - _name of the file with exposed urls (default `/tmp/ssh-proxy/output.txt`)_
 
 ### Docker
 
