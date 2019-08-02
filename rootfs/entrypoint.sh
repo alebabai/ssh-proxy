@@ -9,7 +9,7 @@ function open_ssh_tunnel {
     local tunnel_bindings=()
     local tunnel_urls=()
 
-    for address in ${ADDRESS[@]}
+    for address in ${ADDRESSES[@]}
     do
         local remote_hostname=$(echo $address | cut -d ':' -f 1)
         local tunnel_address=$tunnel_prefix-$remote_hostname:$tunnel_port
