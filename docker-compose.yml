@@ -5,7 +5,8 @@ services:
     image: alebabai/ssh-proxy:latest
     build: .
     environment: 
-      ADDRESS: "localhost:80"
+      ADDRESSES: |-
+        localhost:80
     volumes:
       - ./tmp:/tmp/ssh-proxy
     networks: 
